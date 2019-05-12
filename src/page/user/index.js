@@ -1,5 +1,27 @@
-import Ldreact from 'ldreact'
+/** @jsx Ldreact.createElement */
+import Ldreact from 'ldreact';
+import App from './containers';
 
 
 
-console.log(Ldreact)
+Ldreact.render(
+    <App name="app"/>,
+    document.getElementById('root')
+);
+
+
+
+/*
+React.createElement return
+test = {
+    $$typeof: Symbol(react.element),
+    key: null,
+    props: { children: { … } },
+    ref: null,
+    type: "div",
+    _owner: null,
+    _store: { validated: false },
+    _self: null,
+    _source: null,
+}
+ */

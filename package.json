@@ -4,7 +4,7 @@
   "description": "react16 transaction",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --mode development"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,6 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
-    "ldreact": "file:ldreact",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

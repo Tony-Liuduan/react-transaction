@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
+/** @jsx Ldreact.createElement */
+import Ldreact, { Component } from 'ldreact';
 
 
-export default class App extends Component {
+
+//const App = (props) => <div name={props.name}>{props.name}</div>
+
+
+
+class App extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             date: new Date()
         };
-    }
-
-    componentWillMount() {
     }
 
     componentDidMount() {
@@ -25,20 +28,23 @@ export default class App extends Component {
     }
 
     tick() {
-        this.setState({
-            date: new Date()
-        });
+        // this.setState({
+        //     date: new Date()
+        // });
     }
 
     render() {
 
         return (
             <div>
-                <a href="/user.html">我的react</a>
-                <h1>Hello, react!</h1>
+                <a href="/index.html">原生react</a>
+                <h1>Hello, ldreact!</h1>
                 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
             </div>
         );
     }
 
 }
+
+
+export default App
