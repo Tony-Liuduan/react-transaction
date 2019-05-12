@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 module.exports = {
@@ -12,9 +11,7 @@ module.exports = {
     },
 
     output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'static/js/[name].[hash:8].js',
-        chunkFilename: 'static/js/[name].[hash:8].chunk.js'
+        path: path.resolve(__dirname, 'build')
     },
 
     module: {
@@ -26,32 +23,12 @@ module.exports = {
                 use: [
                     'babel-loader?cacheDirectory'
                 ]
-            },
-            {
-                test: /\.css$/,
-                exclude: /node_modules/,
-                include: path.resolve(__dirname, 'src'),
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            },
-            {
-                test: /\.scss$/,
-                exclude: /node_modules/,
-                include: path.resolve(__dirname, 'src'),
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
             }
         ]
     },
 
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './public/index.html')
         })
