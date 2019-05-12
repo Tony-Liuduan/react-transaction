@@ -7,7 +7,8 @@ module.exports = {
     mode: 'production',
     devtool: 'source-map',
     entry: {
-        app: './src/page/index'
+        index: './src/page/index',
+        user: './src/page/user'
     },
 
     output: {
@@ -30,7 +31,16 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './public/index.html')
+            title: '原生react',
+            chunks: ['index'],
+            filename: 'index.html',
+            template: path.resolve(__dirname, './public/index.ejs')
+        }),
+        new HtmlWebpackPlugin({
+            title: '我的react',
+            chunks: ['user'],
+            filename: 'user.html',
+            template: path.resolve(__dirname, './public/index.ejs')
         })
     ],
 
