@@ -16,7 +16,7 @@ export const render = (vdom, parent = null, root = true) => {
     if (parent && root) parent.textContent = '';
     let mount = parent ? (el => parent.appendChild(el)) : (el => el);
 
-
+    //console.log(vdom, parent)
     switch (typeof vdom) {
         case 'string':
         case 'number':
@@ -89,6 +89,48 @@ const setAttribute = (dom, key, value) => {
     }
 };
 
+// diff 算法
+/* const patch = (dom, vdom, parent = dom.parentNode) => {
+    const replace = parent ? el => (parent.replaceChild(el, dom) && el) : (el => el);
+    if (typeof vdom == 'object' && typeof vdom.type == 'function') {
+        return Component.patch(dom, vdom, parent);
+
+    } else if (typeof vdom != 'object' && dom instanceof Text) {
+        return dom.textContent != vdom ? replace(render(vdom, parent)) : dom;
+
+    } else if (typeof vdom == 'object' && dom instanceof Text) {
+
+        return replace(render(vdom, parent));
+    } else if (typeof vdom == 'object' && dom.nodeName != vdom.type.toUpperCase()) {
+
+        return replace(render(vdom, parent));
+    } else if (typeof vdom == 'object' && dom.nodeName == vdom.type.toUpperCase()) {
+
+        const pool = {};
+        const active = document.activeElement;
+        [].concat(...dom.childNodes).map((child, index) => {
+            const key = child.__gooactKey || `__index_${index}`;
+            pool[key] = child;
+        });
+        [].concat(...vdom.children).map((child, index) => {
+            const key = child.props && child.props.key || `__index_${index}`;
+            dom.appendChild(pool[key] ? patch(pool[key], child) : render(child, dom));
+            delete pool[key];
+        });
+        for (const key in pool) {
+            const instance = pool[key].__gooactInstance;
+            if (instance) instance.componentWillUnmount();
+            pool[key].remove();
+        }
+        for (const attr of dom.attributes) dom.removeAttribute(attr.name);
+        for (const prop in vdom.props) setAttribute(dom, prop, vdom.props[prop]);
+        active.focus();
+        return dom;
+    }
+};
+ */
+
+
 export class Component {
 
     constructor(props) {
@@ -100,12 +142,12 @@ export class Component {
         const props = Object.assign({}, vdom.props, { children: vdom.children });
 
         if (Component.isPrototypeOf(vdom.type)) {
-            
+            console.log(parent)
             // 通过类创建的组件
             const instance = new vdom.type(props)
 
             instance.componentWillMount();
-            instance.base = render(instance.render(), parent);
+            instance.base = render(instance.render(), parent, false);
             instance.base.__ldreactInstance = instance;
             instance.base.__ldreactKey = vdom.props.key;
             instance.componentDidMount();
@@ -114,7 +156,7 @@ export class Component {
 
         } else {
             // 通过方法创建的组件
-            return render(vdom.type(props), parent);
+            return render(vdom.type(props), parent, false);
 
         }
 
@@ -132,20 +174,22 @@ export class Component {
         } else if (!Component.isPrototypeOf(vdom.type)) {
             return patch(dom, vdom.type(props), parent);
         }
-    }
+    } */
 
     setState(next) {
-        const compat = (a) => typeof this.state == 'object' && typeof a == 'object';
+        const compat = (a) => typeof this.state === 'object' && typeof a === 'object';
         if (this.base && this.shouldComponentUpdate(this.props, next)) {
             const prevState = this.state;
             this.componentWillUpdate(this.props, next);
             this.state = compat(next) ? Object.assign({}, this.state, next) : next;
-            patch(this.base, this.render());
+            //patch(this.base, this.render());
+            // bug: 如果多层级组件会将其他组件都清空
+            this.base = render(this.render(), this.base.parentNode);
             this.componentDidUpdate(this.props, prevState);
         } else {
             this.state = compat(next) ? Object.assign({}, this.state, next) : next;
         }
-    } */
+    }
 
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps != this.props || nextState != this.state;

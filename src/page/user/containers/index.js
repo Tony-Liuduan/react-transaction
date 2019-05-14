@@ -28,13 +28,13 @@ class App extends Component {
     }
 
     tick() {
-        // this.setState({
-        //     date: new Date()
-        // });
+        this.setState({
+            date: new Date()
+        });
     }
 
     render() {
-
+        //console.log(this.state.date.toLocaleTimeString())
         return (
             <div>
                 <a href="/index.html">原生react</a>
