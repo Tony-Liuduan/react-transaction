@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Topology from '../components/Topology';
 
 
 export default class App extends Component {
@@ -37,6 +38,7 @@ export default class App extends Component {
                 <a href="/user.html">我的react</a>
                 <h1>Hello, react!</h1>
                 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                <Topology />
             </div>
         );
     }
