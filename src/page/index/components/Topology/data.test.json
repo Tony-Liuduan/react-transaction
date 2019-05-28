@@ -1,0 +1,246 @@
+{
+    "code": 0,
+    "data": {
+        "categories": [
+            {
+                "attributes": [
+                    "marital_status",
+                    "create_time",
+                    "productid",
+                    "user_id",
+                    "sex",
+                    "real_name"
+                ],
+                "name": "用户"
+            },
+            {
+                "attributes": [
+                    "create_time",
+                    "productid",
+                    "mobile"
+                ],
+                "name": "手机"
+            },
+            {
+                "attributes": [
+                    "salesman_id",
+                    "role",
+                    "create_time",
+                    "productid",
+                    "real_name"
+                ],
+                "name": "销售"
+            },
+            {
+                "attributes": [
+                    "id_card_no",
+                    "create_time",
+                    "productid"
+                ],
+                "name": "身份证号"
+            }
+        ],
+        "edgeCategories": [
+            {
+                "attributes": [
+                    "productid",
+                    "create_time"
+                ],
+                "name": "销售引导"
+            },
+            {
+                "attributes": [
+                    "create_time",
+                    "productid"
+                ],
+                "name": "用户拥有的身份证号"
+            },
+            {
+                "attributes": [
+                    "productid",
+                    "create_time"
+                ],
+                "name": "用户登录手机号"
+            }
+        ],
+        "edgeCount": 0,
+        "edges": [
+            {
+                "both": false,
+                "id": "16357009442795986968",
+                "relations": [
+                    {
+                        "id": "2grudcq-r1uqxc-6ql1-1a8npco",
+                        "name": "用户拥有的身份证号",
+                        "propertys": {
+                            "create_time": "2017-03-18 23:42:32.0",
+                            "productid": "001"
+                        }
+                    }
+                ],
+                "source": "1635700944",
+                "target": "2795986968"
+            },
+            {
+                "both": false,
+                "id": "15288199601635700944",
+                "relations": [
+                    {
+                        "id": "2ftfk0v-pa7x14-6591-r1uqxc",
+                        "name": "销售引导",
+                        "propertys": {
+                            "productid": "001",
+                            "create_time": "2017-03-18 23:42:32.0"
+                        }
+                    }
+                ],
+                "source": "1528819960",
+                "target": "1635700944"
+            },
+            {
+                "both": false,
+                "id": "1635700944770597112",
+                "relations": [
+                    {
+                        "id": "2hl0gey-r1uqxc-6p05-cqskjc",
+                        "name": "用户登录手机号",
+                        "propertys": {
+                            "productid": "001",
+                            "create_time": "2017-03-18 23:42:32.0"
+                        }
+                    }
+                ],
+                "source": "1635700944",
+                "target": "770597112"
+            }
+        ],
+        "nodeCount": 0,
+        "nodes": [
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 1.0,
+                    "centrality": 1.0,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 2
+                },
+                "highlight": false,
+                "id": "1635700944",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[林艳]",
+                "propertys": {
+                    "marital_status": [
+                        "无"
+                    ],
+                    "create_time": [
+                        "2017-03-18 23:42:32.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "30114853573383"
+                    ],
+                    "sex": [
+                        "女"
+                    ],
+                    "real_name": [
+                        "林艳"
+                    ]
+                }
+            },
+            {
+                "category": 1,
+                "feature": {
+                    "averageDegree": 3.0,
+                    "centrality": 0.33333334,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "770597112",
+                "label": "手机",
+                "labelValue": "phone_number",
+                "name": "手机",
+                "propertys": {
+                    "create_time": [
+                        "2017-03-18 23:42:32.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "mobile": [
+                        "15265454666"
+                    ]
+                }
+            },
+            {
+                "category": 2,
+                "feature": {
+                    "averageDegree": 3.0,
+                    "centrality": 0.33333334,
+                    "cluster": 0.0,
+                    "in": 0,
+                    "nearCentrality": 0.0,
+                    "out": 1
+                },
+                "highlight": false,
+                "id": "1528819960",
+                "label": "销售",
+                "labelValue": "salesman",
+                "name": "销售",
+                "propertys": {
+                    "salesman_id": [
+                        "425"
+                    ],
+                    "role": [
+                        "客户经理"
+                    ],
+                    "create_time": [
+                        "2016-11-10 22:57:41.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "real_name": [
+                        "邵士强"
+                    ]
+                }
+            },
+            {
+                "category": 3,
+                "feature": {
+                    "averageDegree": 3.0,
+                    "centrality": 0.33333334,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "2795986968",
+                "label": "身份证号",
+                "labelValue": "Identity_card",
+                "name": "[220284198310145420]",
+                "propertys": {
+                    "id_card_no": [
+                        "220284198310145420"
+                    ],
+                    "create_time": [
+                        "2017-03-18 23:42:32.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ]
+                }
+            }
+        ],
+        "pathCount": 3
+    },
+    "msg": "请求成功"
+}

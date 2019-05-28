@@ -1,7 +1,7 @@
 import PlantA from './plantA';
 import PlantB from './plantB';
+import PlantC from './plantC';
 
 
 
-// export default PlantA;
-export default PlantB;
+export default PlantC;

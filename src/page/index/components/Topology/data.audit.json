@@ -1,0 +1,1245 @@
+{
+    "code": 0,
+    "data": {
+        "categories": [
+            {
+                "attributes": [
+                    "marital_status",
+                    "create_time",
+                    "productid",
+                    "user_id",
+                    "sex",
+                    "real_name"
+                ],
+                "name": "用户"
+            },
+            {
+                "attributes": [],
+                "name": "销售"
+            },
+            {
+                "attributes": [],
+                "name": "银行卡号"
+            },
+            {
+                "attributes": [
+                    "role",
+                    "create_time",
+                    "productid",
+                    "real_name",
+                    "auditor_id"
+                ],
+                "name": "审核人员"
+            },
+            {
+                "attributes": [],
+                "name": "手机"
+            },
+            {
+                "attributes": [],
+                "name": "地址"
+            },
+            {
+                "attributes": [],
+                "name": "公司"
+            },
+            {
+                "attributes": [],
+                "name": "驾驶证"
+            },
+            {
+                "attributes": [],
+                "name": "联系人"
+            },
+            {
+                "attributes": [],
+                "name": "身份证号"
+            }
+        ],
+        "edgeCategories": [
+            {
+                "attributes": [
+                    "audit_level",
+                    "audit_time",
+                    "reason_code",
+                    "audit_summary",
+                    "create_time",
+                    "suggest_ratio",
+                    "suggest_amount",
+                    "return_status",
+                    "audit_status"
+                ],
+                "name": "车分期一审"
+            }
+        ],
+        "edgeCount": 0,
+        "edges": [
+            {
+                "both": false,
+                "id": "26787635841672950008",
+                "relations": [
+                    {
+                        "id": "2f59jig-18av77k-6wwl-ro14hk",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_level": "1",
+                            "audit_time": "2018-01-13 17:11:48.0",
+                            "audit_summary": "信用评级7分，自述本地户籍，稳定性良好，还款能力一般，综上建议通过：首付比例30%，授信额度10w，",
+                            "create_time": "2018-10-29 00:00:00",
+                            "suggest_ratio": "13.9021",
+                            "suggest_amount": "100000.0",
+                            "return_status": "0",
+                            "audit_status": "1"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1672950008"
+            },
+            {
+                "both": false,
+                "id": "26787635841674449104",
+                "relations": [
+                    {
+                        "id": "2f5hl3c-18av77k-6wwl-rox974",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "reason_code": "x_CR0011",
+                            "audit_level": "1",
+                            "audit_time": "2018-01-18 18:20:04.0",
+                            "audit_summary": "征信还款较差，逾期后无新授信，工作不可核，建议拒贷。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674449104"
+            },
+            {
+                "both": false,
+                "id": "26787635841675055352",
+                "relations": [
+                    {
+                        "id": "2f54z60-18av77k-6wwl-rpa8zc",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_time": "2018-01-24 17:05:04.0",
+                            "audit_level": "1",
+                            "reason_code": "x_CR000109",
+                            "audit_summary": "无驾照。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1675055352"
+            },
+            {
+                "both": false,
+                "id": "26787635841674445008",
+                "relations": [
+                    {
+                        "id": "2f5hrew-18av77k-6wwl-rox61c",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_time": "2018-01-18 11:16:51.0",
+                            "reason_code": "x_CR000601",
+                            "audit_level": "1",
+                            "audit_summary": "客户称年后才会考虑买车，到时候再办。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674445008"
+            },
+            {
+                "both": false,
+                "id": "26787635841653821448",
+                "relations": [
+                    {
+                        "id": "2f58t1k-18av77k-6wwl-rcn4so",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_level": "1",
+                            "reason_code": "x_CR0011",
+                            "audit_time": "2018-02-22 13:49:59.0",
+                            "audit_summary": "拨打客户电话称不是客户，对方挂断，再拨不接。近期批贷非常多。命中黑名单。建议拒绝。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1653821448"
+            },
+            {
+                "both": false,
+                "id": "26787635841673289792",
+                "relations": [
+                    {
+                        "id": "2f5ho94-18av77k-6wwl-ro8eo0",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "reason_code": "x_CR000601",
+                            "audit_level": "1",
+                            "audit_time": "2018-01-18 13:21:21.0",
+                            "audit_summary": "称不需要办了，随便凑凑就够了，核身无误。手机上看到的。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1673289792"
+            },
+            {
+                "both": false,
+                "id": "26787635841669644536",
+                "relations": [
+                    {
+                        "id": "2f52sjs-18av77k-6wwl-rm29yw",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_time": "2018-03-04 16:49:53.0",
+                            "audit_level": "1",
+                            "audit_summary": "信用评级6，本地人，稳定性一般，还款能力一般，综上建议通过：首付比例30%，授信额度15w。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "suggest_ratio": "13.9021",
+                            "return_status": "0",
+                            "suggest_amount": "150000.0",
+                            "audit_status": "1"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1669644536"
+            },
+            {
+                "both": false,
+                "id": "26787635841672953920",
+                "relations": [
+                    {
+                        "id": "2f52cco-18av77k-6wwl-ro17i8",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_time": "2018-01-16 11:49:05.0",
+                            "audit_level": "1",
+                            "reason_code": "x_CR000601",
+                            "audit_summary": "S主动放弃",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1672953920"
+            },
+            {
+                "both": false,
+                "id": "26787635841674104896",
+                "relations": [
+                    {
+                        "id": "2f4yzgo-18av77k-6wwl-ropvls",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_time": "2018-01-23 11:13:26.0",
+                            "reason_code": "x_CR0011",
+                            "audit_level": "1",
+                            "audit_summary": "客户年纪较小，非本地人，租房，口述收入5千，曾经借款买奢侈品，此次要买20-30w车，近期征信申请频繁，电核是收到催收电话，建议拒绝。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674104896"
+            },
+            {
+                "both": false,
+                "id": "26787635841674494016",
+                "relations": [
+                    {
+                        "id": "2f54ky0-18av77k-6wwl-roy7uo",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_level": "1",
+                            "reason_code": "x_CR000401",
+                            "audit_time": "2018-01-25 10:23:14.0",
+                            "audit_summary": "客户留的父亲电核为叔叔，客户3-11月有业务，剩下夫妻只有每月2-3千收入的百货店。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674494016"
+            },
+            {
+                "both": false,
+                "id": "26787635841675079928",
+                "relations": [
+                    {
+                        "id": "2f5651k-18av77k-6wwl-rpary0",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_level": "1",
+                            "audit_time": "2018-01-25 09:50:21.0",
+                            "audit_summary": "信审建议：信用评级5，外地人，稳定性一般，还款能力一般，年龄较小，近期申请频繁，手机号使用时间短，购车需求3w以下，综上建议通过：首付比例30%，授信额度10w。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "suggest_ratio": "13.9021",
+                            "suggest_amount": "100000.0",
+                            "return_status": "0",
+                            "audit_status": "1"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1675079928"
+            },
+            {
+                "both": false,
+                "id": "26787635841674232016",
+                "relations": [
+                    {
+                        "id": "2f4ya6g-18av77k-6wwl-roslow",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_time": "2018-01-17 17:56:07.0",
+                            "audit_level": "1",
+                            "reason_code": "x_CR000101",
+                            "audit_summary": "近期申请频繁用于买车。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674232016"
+            },
+            {
+                "both": false,
+                "id": "26787635841674358848",
+                "relations": [
+                    {
+                        "id": "2f53si0-18av77k-6wwl-rovbk0",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_time": "2018-01-24 14:16:14.0",
+                            "audit_level": "1",
+                            "reason_code": "x_CR000601",
+                            "audit_summary": "S流程繁琐",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674358848"
+            },
+            {
+                "both": false,
+                "id": "26787635842678763584|19",
+                "relations": [
+                    {
+                        "id": "2f58tu0-18av77k-6wwl-rpbke0",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_level": "1",
+                            "audit_time": "2018-01-25 14:49:46.0",
+                            "audit_summary": "信审建议：信用评级10，外地人，稳定性一般，还款能力一般，综上建议通过：首付比例30%，授信额度5w。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "suggest_ratio": "13.9021",
+                            "return_status": "0",
+                            "suggest_amount": "50000.0",
+                            "audit_status": "1"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "2678763584|19"
+            },
+            {
+                "both": false,
+                "id": "26787635841674870848",
+                "relations": [
+                    {
+                        "id": "2f500lk-18av77k-6wwl-rp6am8",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_time": "2018-01-27 17:26:00.0",
+                            "reason_code": "x_CR0011",
+                            "audit_level": "1",
+                            "audit_summary": "客户首付只能出1-2千，反复问是否能0首付，建议拒绝。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674870848"
+            },
+            {
+                "both": false,
+                "id": "26787635841674920000",
+                "relations": [
+                    {
+                        "id": "2f54poo-18av77k-6wwl-rp7cjk",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_level": "1",
+                            "audit_time": "2018-01-28 10:02:09.0",
+                            "reason_code": "x_CR000113",
+                            "audit_summary": "客户刚辞职，买车用于回老家跑滴滴。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674920000"
+            },
+            {
+                "both": false,
+                "id": "26787635841674219584",
+                "relations": [
+                    {
+                        "id": "2f520w8-18av77k-6wwl-rosc3k",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_time": "2018-01-24 10:18:25.0",
+                            "reason_code": "x_CR000401",
+                            "audit_level": "1",
+                            "audit_summary": "提供2次联系人均为空号。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "return_status": "0",
+                            "audit_status": "2"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674219584"
+            },
+            {
+                "both": false,
+                "id": "26787635841674567744",
+                "relations": [
+                    {
+                        "id": "2f50hl4-18av77k-6wwl-rozsqo",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_time": "2018-01-25 15:42:11.0",
+                            "audit_level": "1",
+                            "audit_summary": "信审建议：信用评级7，外地人，稳定性一般，还款能力一般，综上建议通过：首付比例30%，授信额度10w。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "suggest_ratio": "13.9021",
+                            "suggest_amount": "100000.0",
+                            "return_status": "0",
+                            "audit_status": "1"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674567744"
+            },
+            {
+                "both": false,
+                "id": "26787635841674653904",
+                "relations": [
+                    {
+                        "id": "2f5dqfc-18av77k-6wwl-rp1n80",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_level": "1",
+                            "audit_time": "2018-01-19 10:39:20.0",
+                            "audit_summary": "信审建议：信用评级1，外地人，稳定性一般，还款能力一般，综上建议通过：首付比例30%，授信额度25w。",
+                            "create_time": "2018-10-29 00:00:00",
+                            "suggest_ratio": "13.9021",
+                            "return_status": "0",
+                            "suggest_amount": "250000.0",
+                            "audit_status": "1"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674653904"
+            },
+            {
+                "both": false,
+                "id": "26787635841674256592",
+                "relations": [
+                    {
+                        "id": "2f4wao8-18av77k-6wwl-rot4nk",
+                        "name": "车分期一审",
+                        "propertys": {
+                            "audit_time": "2018-01-17 17:09:56.0",
+                            "audit_level": "1",
+                            "audit_summary": "信用评级6，本地人，稳定一般，还款能力一般，综上建议通过：首付比例30%，授信额度15万，",
+                            "create_time": "2018-10-29 00:00:00",
+                            "suggest_ratio": "13.9021",
+                            "return_status": "0",
+                            "suggest_amount": "150000.0",
+                            "audit_status": "1"
+                        }
+                    }
+                ],
+                "source": "2678763584",
+                "target": "1674256592"
+            }
+        ],
+        "nodeCount": 0,
+        "nodes": [
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1673289792",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[吴兆烈]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2018-01-17 23:29:15.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "38547016928014"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "吴兆烈"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674653904",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[李凡]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2018-01-19 00:59:03.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "29095840719875"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "李凡"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674870848",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[龙加伟]",
+                "propertys": {
+                    "marital_status": [
+                        "未婚"
+                    ],
+                    "create_time": [
+                        "2018-01-27 16:34:33.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "8180184020486"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "龙加伟"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1675079928",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[丛宝俊]",
+                "propertys": {
+                    "marital_status": [
+                        "未婚"
+                    ],
+                    "create_time": [
+                        "2018-01-24 19:17:30.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "53102258301966"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "丛宝俊"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674256592",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[王文]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2018-01-17 08:30:25.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "21790394446086"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "王文"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1653821448",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[刘学]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2017-08-12 21:10:18.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "38089713571351"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "刘学"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674567744",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[靳卫斌]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2018-01-25 14:58:24.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "43696412644375"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "靳卫斌"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674920000",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[陈虎]",
+                "propertys": {
+                    "marital_status": [
+                        "离异"
+                    ],
+                    "create_time": [
+                        "2018-01-27 20:46:25.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "52921163181839"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "陈虎"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674358848",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[金定森]",
+                "propertys": {
+                    "marital_status": [
+                        "未婚"
+                    ],
+                    "create_time": [
+                        "2018-01-24 13:35:53.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "9571774665735"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "金定森"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674449104",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[郑伟]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2018-01-17 23:52:06.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "53053088466453"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "郑伟"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1669644536",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[姚桂环]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2017-12-24 19:20:44.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "24671704331782"
+                    ],
+                    "sex": [
+                        "女"
+                    ],
+                    "real_name": [
+                        "姚桂环"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674445008",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[吴健生]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2018-01-17 23:24:19.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "19454257188870"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "吴健生"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": true,
+                "id": "2678763584|19",
+                "label": "用户",
+                "labelValue": "cfq_manual_auditor",
+                "name": "更多",
+                "propertys": {}
+            },
+            {
+                "category": 3,
+                "feature": {
+                    "averageDegree": 1.0,
+                    "centrality": 1.0,
+                    "cluster": 0.0,
+                    "in": 0,
+                    "nearCentrality": 0.0,
+                    "out": 20
+                },
+                "highlight": false,
+                "id": "2678763584",
+                "label": "审核人员",
+                "labelValue": "cfq_manual_auditor",
+                "name": "审核人员",
+                "propertys": {
+                    "role": [
+                        "初审人员"
+                    ],
+                    "create_time": [
+                        "2018-01-05 18:10:18.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "real_name": [
+                        "周晓宇"
+                    ],
+                    "auditor_id": [
+                        "229"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674494016",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[乔富强]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2018-01-25 09:45:39.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "2717152780294"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "乔富强"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1675055352",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[许思洁]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2018-01-24 16:28:18.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "53102257875985"
+                    ],
+                    "sex": [
+                        "女"
+                    ],
+                    "real_name": [
+                        "许思洁"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674219584",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[马阿不都]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2018-01-23 19:37:49.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "43560145951245"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "马阿不都"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1672953920",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[郭下飞]",
+                "propertys": {
+                    "marital_status": [
+                        "未婚"
+                    ],
+                    "create_time": [
+                        "2018-01-16 07:47:29.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "31293997356043"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "郭下飞"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674232016",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[张亚东]",
+                "propertys": {
+                    "marital_status": [
+                        "未婚"
+                    ],
+                    "create_time": [
+                        "2018-01-16 22:50:19.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "27884480370438"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "张亚东"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1672950008",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[白雪飞]",
+                "propertys": {
+                    "marital_status": [
+                        "已婚"
+                    ],
+                    "create_time": [
+                        "2018-01-12 19:27:32.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "37708197001231"
+                    ],
+                    "sex": [
+                        "男"
+                    ],
+                    "real_name": [
+                        "白雪飞"
+                    ]
+                }
+            },
+            {
+                "category": 0,
+                "feature": {
+                    "averageDegree": 20.0,
+                    "centrality": 0.05,
+                    "cluster": 0.0,
+                    "in": 1,
+                    "nearCentrality": 0.0,
+                    "out": 0
+                },
+                "highlight": false,
+                "id": "1674104896",
+                "label": "用户",
+                "labelValue": "user",
+                "name": "[韩悦]",
+                "propertys": {
+                    "marital_status": [
+                        "未婚"
+                    ],
+                    "create_time": [
+                        "2018-01-23 10:18:45.0"
+                    ],
+                    "productid": [
+                        "001"
+                    ],
+                    "user_id": [
+                        "53102254171415"
+                    ],
+                    "sex": [
+                        "女"
+                    ],
+                    "real_name": [
+                        "韩悦"
+                    ]
+                }
+            }
+        ],
+        "pathCount": 20
+    },
+    "msg": "请求成功"
+}

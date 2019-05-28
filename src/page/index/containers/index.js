@@ -7,7 +7,7 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            date: new Date()
+            count: 0
         };
     }
 
@@ -15,20 +15,18 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        this.timerID = setInterval(
-            () => this.tick(),
-            1000
-        );
     }
 
     componentWillUnmount() {
-        clearInterval(this.timerID);
     }
 
-    tick() {
+    tick = () => {
         this.setState({
-            date: new Date()
+            count: this.state.count + 1
         });
+        // this.setState({
+        //     count: this.state.count + 2
+        // });
     }
 
     render() {
@@ -36,10 +34,12 @@ export default class App extends Component {
         return (
             <div>
                 <a href="/user.html">我的react</a>
-                <h1>Hello, react!</h1>
-                <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                <br />
+                <button onClick={this.tick}>点我</button>
+                <div>count: {this.state.count}</div>
                 <Topology />
             </div>
+
         );
     }
 

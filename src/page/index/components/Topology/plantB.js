@@ -20,7 +20,7 @@ class Circle {
         this.x = x
         this.y = y
         this.r = r,
-            this.c = color ? color : this.getRandomColor()
+        this.c = color ? color : this.getRandomColor()
     }
     getRandomColor() {
         let r = Math.floor(Math.random() * 255);
@@ -111,10 +111,8 @@ class Topology extends PureComponent {
 
     init = () => {
         const list = this.getXYR(this.minRay);
-        this.drawLine();
-        list.sort((a, b) => b.r - a.r).forEach(c => {
-            this.drawOneCircle(c);
-        });
+        console.log(list);
+        this.draw();
     }
 
     draw = () => {
