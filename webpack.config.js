@@ -53,6 +53,7 @@ module.exports = {
         ],
         alias: {
             components: path.resolve(__dirname, 'src/components/'),
+            mock: path.resolve(__dirname, 'mock'),
             ldreact: path.resolve(__dirname, 'ldreact')
         },
         extensions: ['.js', '.jsx']

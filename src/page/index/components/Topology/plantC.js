@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import utils from './utils';
-import testData from './data.test.json';
-import userData from './data.user.json';
-import saleData from './data.sale.json';
-import auditData from './data.audit.json';
+import testData from 'mock/data.test.json';
+import userData from 'mock/data.user.json';
+import saleData from 'mock/data.sale.json';
+import auditData from 'mock/data.audit.json';
 
 
 const defaultStyle = {
