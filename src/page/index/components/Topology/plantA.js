@@ -104,7 +104,7 @@ class Topology extends PureComponent {
     }
 
     check(x, y, r) {
-        return !(x + r > this.dWidth || x - r < 0 || y + r > this.dHeight || y - r < 0)
+        return !(x + r > this.dWidth || xq - r < 0 || y + r > this.dHeight || y - r < 0)
     }
 
     // 获取一个新圆的半径，主要判断半径与最近的一个圆的距离

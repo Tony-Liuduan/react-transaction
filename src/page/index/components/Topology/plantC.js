@@ -49,18 +49,21 @@ class Topology extends PureComponent {
         this.pointMap = {};
         this.circleArray = [];
         this.circleNumber = 1;
+        // 中心点map，key是中心点id
+        this.centerPointMap = {};
+        // 中心点id列表，根据加载次序添加
+        this.centerPointList = [];
     }
 
     componentDidMount() {
         this.sourceData = utils.formatData(userData.data);
-        console.log(this.sourceData)
+        this.centerPointList.push(...Object.keys(this.sourceData.edgeTree));
 
         const saleSourceData = utils.formatData(saleData.data);
-        console.log(saleSourceData)
+        this.centerPointList.push(...Object.keys(saleSourceData.edgeTree));
 
         Object.assign(this.sourceData.edgeTree, saleSourceData.edgeTree);
         Object.assign(this.sourceData.nodeTree, saleSourceData.nodeTree);
-        console.log(this.sourceData)
 
         const canvas = document.getElementById('canvas');
         if (!canvas) return;
@@ -144,15 +147,56 @@ class Topology extends PureComponent {
         this.ctx.clearRect(0, 0, this.dWidth, this.dHeight);
     }
 
+    // 检查中心点集合圆是否碰撞
+    checkCenterPointCrash() {
+        try {
+            let l = this.centerPointList.length;
+            let i = 0;
+            let centers = [];
+            for (; i < l; i++) {
+                let id = this.centerPointList[i];
+                let current = this.pointMap[id].slice(-1)[0];
+                centers.push(current);
+            }
+            //console.log(centers);
+
+            // let lenArr = centers.map(c => {
+            //     let xSpan = c.x - x
+            //     let ySpan = c.y - y
+            //     return Math.floor(Math.sqrt(Math.pow(xSpan, 2) + Math.pow(ySpan, 2))) - c.r
+            // })
+            centers = [1, 2, 3, 4]
+            let clen = centers.length;
+            for (let i = 0; i < clen - 1; i++) {
+                const pre = centers[i];
+                for (let j = i + 1; j < clen; j++) {
+                    const next = centers[j];
+                    console.log(pre, next);
+                }
+            }
+
+            // let minCircleLen = Math.min(...lenArr)
+            // let tempR = this.fix ? this.radiu : minCircleLen - this.minMargin
+            // let bool = this.fix ? (tempR + this.minMargin <= minCircleLen) : (tempR >= this.minRadius)
+            // return bool ? tempR : false
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     getGroupXY() {
         try {
             const tree = Object.keys(this.sourceData.edgeTree);
             const len = tree.length;
-            tree.forEach((key, index) => {
+            this.centerPointList.forEach((key, index) => {
                 const child = this.sourceData.edgeTree[key];
+                const length = child.length;
+                const newChild = this.sourceData.edgeTree[key] = child.filter(item => !!item);
+
                 this.getCenterXY(len, key, index);
-                this.getAffixXY(this.minRay, key, child);
+                this.getAffixXY(this.minRay, key, newChild, length);
             });
+            this.checkCenterPointCrash();
         } catch (e) {
             console.error(e);
         }
@@ -160,24 +204,42 @@ class Topology extends PureComponent {
 
     getCenterXY(len = 1, id = '', index = 0) {
         try {
+            if (this.centerPointMap[id]) {
+                this.pointMap[id] = [this.centerPointMap[id]];
+                return;
+            }
+
             let x = this.dWidth / (len + 1) * (index + 1);
             let y = this.dHeight / (len + 1) * (index + 1);
             let r = this.radius[0];
-            this.pointMap[id] = [new Circle(x, y, r, this.sourceData.nodeTree[id])];
+            let instance = new Circle(x, y, r, this.sourceData.nodeTree[id]);
+            this.pointMap[id] = [instance];
+            this.centerPointMap[id] = instance;
         } catch (e) {
             console.error(e);
         }
     }
 
     // 找到圆的坐标
-    getAffixXY(minRay, key = '', child = []) {
+    getAffixXY(minRay, key = '', child = [], n) {
         try {
             let r = this.radius[1];
-            let n = child.length;
+            let l = child.length;
             let origin = this.pointMap[key][0];
-            let getNode = i => this.sourceData.nodeTree[child[i]['_node']];
 
-            if (n <= 0) return;
+            let getNode = i => this.sourceData.nodeTree[child[i]['_node']];
+            // 验证子节点上是否有中心点
+            let check = i => {
+                if (!child[i]) return false;
+                let k = child[i]['_node'];
+                if (this.sourceData.edgeTree[k]) {
+                    this.sourceData.edgeTree[k].push(null);
+                    return k;
+                }
+                return false;
+            };
+
+            if (l <= 0) return;
 
             // 其他的圆坐标是围绕这个中心点上
             // 计算圆之间的夹角
@@ -187,14 +249,34 @@ class Topology extends PureComponent {
             let maxRayX = origin.x - r;
             let maxRayY = origin.y - r;
 
-            for (let i = 0; i < n; i++) {
+            for (let i = 0; i < l; i++) {
+                //if (!child[i]) break;
                 let hudu = hu * ang * i;
+
                 let x = origin.x + Math.sin(hudu) * minRay;
                 // 注意此处是“-”号，因为我们要得到的Y是相对于（0,0）而言的。
                 let y = origin.y - Math.cos(hudu) * minRay;
 
+                r = this.radius[1];
+
+                let isCenterPoint = check(i);
+                let instance;
+                // todo: 寻找坐标算法
+                if (isCenterPoint && this.centerPointMap[isCenterPoint]) {
+                    instance = this.centerPointMap[isCenterPoint];
+                    x = instance.x;
+                    y = instance.y;
+                    r = instance.r;
+                    hudu = 0;
+                } else if (isCenterPoint) {
+                    x = origin.x + Math.sin(hudu) * minRay * 2.5;
+                    y = origin.y - Math.cos(hudu) * minRay * 2.5;
+                    r = this.radius[0];
+                    hudu = 0;
+                }
+
                 // 检查是否重叠
-                if (i === 1 && minRay < Math.min(maxRayX, maxRayY)) {
+                if (i === 1 && minRay < Math.min(maxRayX, maxRayY) && !isCenterPoint) {
                     let pre = list[list.length - 1];
                     let xSpan = x - pre.x;
                     let ySpan = y - pre.y;
@@ -204,15 +286,20 @@ class Topology extends PureComponent {
                     }
                 }
 
-                list.push(new Circle(x, y, r, getNode(i), hudu));
+                instance = instance || new Circle(x, y, r, getNode(i), hudu);
+
+                list.push(instance);
+                if (isCenterPoint) this.centerPointMap[child[i]['_node']] = instance;
             }
 
             // 检查是否需要扩大射线长度
-            if (list.length < n) {
+            if (list.length < l) {
                 let nextRay = Math.min(maxRayX, maxRayY, minRay * 1.2);
-                return this.getAffixXY(nextRay, key, child);
+                return this.getAffixXY(nextRay, key, child, n);
             }
 
+            // 修改中心点射线
+            origin.ray = minRay;
             this.pointMap[key] = list.concat(this.pointMap[key]);
         } catch (e) {
             console.error(e);

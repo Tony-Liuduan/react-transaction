@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Topology from '../components/Topology';
+// import Topology from '../components/Topology';
 
 
 export default class App extends Component {
@@ -12,35 +12,54 @@ export default class App extends Component {
     }
 
     componentWillMount() {
+        console.log('Will Mount');
     }
 
     componentDidMount() {
+        console.log('Did Mount');
     }
 
-    componentWillUnmount() {
-    }
-
-    tick = () => {
-        this.setState({
-            count: this.state.count + 1
+    tick = (e) => {
+        // e.persist();
+        console.log('tick', e.target)
+        this.setState((state) => ({
+            count: state.count + 1
+        }), () => {
+            console.log(1, this.state.count);
         });
-        // this.setState({
-        //     count: this.state.count + 2
-        // });
+        this.setState((state) => ({
+            count: state.count + 1
+        }), () => {
+            console.log(2, this.state.count);
+        });
+
+        setTimeout(() => {
+            console.log(e.target);
+        }, 0);
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate')
     }
 
     render() {
 
-        return (
-            <div>
-                <a href="/user.html">我的react</a>
-                <br />
-                <button onClick={this.tick}>点我</button>
-                <div>count: {this.state.count}</div>
-                <Topology />
-            </div>
+        return <div onClick={this.tick}>测试文本: {this.state.count}</div>
 
-        );
     }
 
 }
+
+
+/* 
+
+var reELe = document.createElement('react')
+var event = document.createEvent('Event');
+event.initEvent('react-click', false, false);
+reELe.addEventListener('react-click', function (e) {
+    console.warn('react test')
+}, false);
+
+reELe.dispatchEvent(event);
+
+ */
