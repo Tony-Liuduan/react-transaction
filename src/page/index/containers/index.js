@@ -7,7 +7,8 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            count: 0
+            count: 0,
+            test: true,
         };
     }
 
@@ -17,6 +18,10 @@ export default class App extends Component {
 
     componentDidMount() {
         console.log('Did Mount');
+    }
+
+    shouldComponentUpdate() {
+        return true;
     }
 
     tick = (e) => {
@@ -33,9 +38,13 @@ export default class App extends Component {
             console.log(2, this.state.count);
         });
 
-        setTimeout(() => {
-            console.log(e.target);
-        }, 0);
+        this.setState((state) => ({
+            test: !state.test,
+        }));
+
+        // setTimeout(() => {
+        //     console.log(e.target);
+        // }, 0);
     }
 
     componentDidUpdate() {
@@ -43,23 +52,35 @@ export default class App extends Component {
     }
 
     render() {
+        return <div className="wrap">
+            <p onClick={this.tick}>
+                {this.state.count}
+            </p>
 
-        return <div onClick={this.tick}>测试文本: {this.state.count}</div>
+            <button>
+                {
+                    this.state.test && <span>我出现了</span>
+                }
+            </button>
+        </div>
 
     }
 
 }
 
 
-/* 
+// 模拟react event
+console.group('react event');
+console.log('react event start');
 
 var reELe = document.createElement('react')
 var event = document.createEvent('Event');
 event.initEvent('react-click', false, false);
 reELe.addEventListener('react-click', function (e) {
-    console.warn('react test')
+    console.log('react event run addEventListener callback')
 }, false);
 
 reELe.dispatchEvent(event);
 
- */
+console.log('react event end');
+console.groupEnd();

@@ -1,0 +1,155 @@
+// 点击事件触发
+
+this.setState
+||
+||
+\/
+enqueueUpdate
+scheduleWork
+requestWork
+
+// ...
+
+this.setState
+||
+||
+\/
+enqueueUpdate
+scheduleWork
+requestWork
+
+// ...
+
+合成事件执行结束
+||
+||
+\/
+performSyncWork
+||
+||
+\/
+performWork
+||
+||
+\/
+isRendering = true;
+performWorkOnRoot
+||
+||
+\/
+isWorking = true
+renderRoot
+||
+||
+\/
+workLoop
+||
+||
+\/
+performUnitOfWork
+||
+||
+\/
+beginWork  // update && return child
+    updateClassComponent
+        updateClassInstance 
+            processUpdateQueue  // get new state 
+            instance.shouldComponentUpdate()
+            instance.componentWillUpdate()
+    finishClassComponent   
+        instance.render()  // 调用实例的render方法，获取到新的element链表
+        reconcileChildren  // 通过新的element链表更新当前fiber node的child
+||
+||
+\/
+completeUnitOfWork // 当beginWork返回null时，说明没有子节点了，调用此方法，有兄弟节点返回兄弟节点，有父节点递归父节点到根节点最后返回null
+    
+    completeWork // return null
+        updateHostComponent$1  // 根据updatePayload更新workInProgress.effectTag值，标记是需要更新的节点
+            prepareUpdate   // workInProgress.updateQueue = updatePayload; 
+                diffProperties // 返回updatePayload => 新的节点props: ["children", 16]
+            finalizeInitialChildren // 设置属性，包括合成事件
+                setInitialProperties
+                    setInitialDOMProperties
+                        ensureListeningTo
+                            listenTo 
+                                trapBubbledEvent // document上绑定事件，冒泡阶段
+
+
+        // 更新 firstEffect 链表，根据这个链表进行最后的批量更新dom
+        if (workInProgress.effectTag > PerformedWork) {
+          if (returnFiber.lastEffect !== null) {
+            returnFiber.lastEffect.nextEffect = workInProgress;
+          } else {
+            returnFiber.firstEffect = workInProgress;
+          }
+          returnFiber.lastEffect = workInProgress;
+        }
+||
+||
+\/
+isWorking = false
+onComplete // 构建新的fiber节点完毕，Ready to commit && root.finishedWork = finishedWork = root.current.alternate = workInProgress
+||
+||
+\/
+completeRoot(root, finishedWork); // root.finishedWork = null;
+||
+||
+\/
+isWorking = true;
+commitRoot
+||
+||
+\/
+commitAllHostEffects // 循环finishedWork.firstEffect链表，更新真实的dom结构 nextEffect = nextEffect.nextEffect;
+    commitWork
+        commitUpdate
+            updateFiberProps
+            updateProperties
+                updateDOMProperties
+||
+||
+\/
+commitAllLifeCycles // 循环finishedWork.firstEffect链表，执行生命周期did方法 nextEffect = nextEffect.nextEffect; 
+    commitLifeCycles
+    instance.componentDidUpdate(prevProps, prevState, instance.__reactInternalSnapshotBeforeUpdate)
+    commitUpdateQueue // 执行setState回调
+||
+||
+\/
+isWorking = false;
+isRendering = false;
+
+
+
+
+// 下面是workLoop的心路历程
+
+beginWork
+root => App
+App => div
+div => p
+p => null
+
+completeUnitOfWork
+p => button // 兄弟节点
+
+beginWork
+button => span
+span => null
+
+completeUnitOfWork
+span => button
+// 没有兄弟节点，有父节点，while循环，知道父节点是root根节点返回null
+button => div
+div => App
+App => root
+root => null
+
+
+phase1
+这个阶段的生命周期是可以被打断的，每隔一段时间它会跳出当前渲染进程，去确定是否有其他更重要的任务。
+
+phase2
+这个阶段的生命周期是不可被打断的，React 将其所有的变更一次性更新到DOM上。
