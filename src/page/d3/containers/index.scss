@@ -1,0 +1,9 @@
+.svg-container {
+    background-color: #E8EAED;
+    .active {
+        fill: rgb(31, 119, 180);
+    }
+    circle:hover {
+        fill: orange;
+    }
+}

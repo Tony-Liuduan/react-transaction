@@ -7,7 +7,8 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         index: './src/page/index',
-        user: './src/page/user'
+        user: './src/page/user',
+        d3: './src/page/d3',
     },
 
     output: {
@@ -26,7 +27,19 @@ module.exports = {
                 use: [
                     'babel-loader?cacheDirectory'
                 ]
-            }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    "style-loader", // 将 JS 字符串生成为 style 节点
+                    "css-loader", // 将 CSS 转化成 CommonJS 模块
+                    "sass-loader" // 将 Sass 编译成 CSS，默认使用 Node Sass
+                ]
+            },
         ]
     },
 
@@ -43,7 +56,13 @@ module.exports = {
             chunks: ['user'],
             filename: 'user.html',
             template: path.resolve(__dirname, './public/index.ejs')
-        })
+        }),
+        new HtmlWebpackPlugin({
+            title: 'd3',
+            chunks: ['d3'],
+            filename: 'd3.html',
+            template: path.resolve(__dirname, './public/index.ejs')
+        }),
     ],
 
     resolve: {
