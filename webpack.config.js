@@ -72,6 +72,7 @@ module.exports = {
         ],
         alias: {
             components: path.resolve(__dirname, 'src/components/'),
+            page: path.resolve(__dirname, 'src/page/'),
             mock: path.resolve(__dirname, 'mock'),
             ldreact: path.resolve(__dirname, 'ldreact')
         },
