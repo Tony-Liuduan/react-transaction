@@ -53,6 +53,9 @@ export default class App extends Component {
 
     handleDiv = e => {
         console.log('handleDiv');
+        // this.setState((state) => ({
+        //     count: 100,
+        // }));
     }
 
     handleBtn = e => {
