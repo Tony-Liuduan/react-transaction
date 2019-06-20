@@ -24,6 +24,10 @@ export default class App extends Component {
         return true;
     }
 
+    componentDidUpdate() {
+        console.log('componentDidUpdate')
+    }
+
     tick = (e) => {
         // e.persist();
         console.log('tick', e.target)
@@ -47,17 +51,22 @@ export default class App extends Component {
         // }, 0);
     }
 
-    componentDidUpdate() {
-        console.log('componentDidUpdate')
+    handleDiv = e => {
+        console.log('handleDiv');
+    }
+
+    handleBtn = e => {
+        e.stopPropagation();
+        console.log('handleBtn');
     }
 
     render() {
-        return <div className="wrap">
+        return <div className="wrap" onClick={this.handleDiv}>
             <p onClick={this.tick}>
                 {this.state.count}
             </p>
 
-            <button>
+            <button onClick={this.handleBtn}>
                 {
                     this.state.test && <span>我出现了</span>
                 }
