@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Topology from '../components/Topology';
-
+import Test from './test';
+import './decorator.js';
 
 export default class App extends Component {
 
@@ -64,10 +65,14 @@ export default class App extends Component {
     }
 
     render() {
-        return <div className="wrap" onClick={this.handleDiv}>
+        console.log('******** render **********');
+        return <div className="wrap" onClick={this.handleDiv} style={{ color: 'red' }}>
             <p onClick={this.tick}>
                 {this.state.count}
             </p>
+
+            <Test style={{ color: 'yellow' }} />
+
 
             <button onClick={this.handleBtn}>
                 {
