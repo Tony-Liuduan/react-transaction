@@ -820,6 +820,7 @@ function runEventsInBatch(events) {
 }
 
 function runExtractedEventsInBatch(topLevelType, targetInst, nativeEvent, nativeEventTarget) {
+  // liuduan code: 事件执行的调度方法
   var events = extractEvents(topLevelType, targetInst, nativeEvent, nativeEventTarget);
   runEventsInBatch(events);
 }
@@ -4852,7 +4853,7 @@ function trapBubbledEvent(topLevelType, element) {
     return null;
   }
   var dispatch = isInteractiveTopLevelEventType(topLevelType) ? dispatchInteractiveEvent : dispatchEvent;
-
+// liuduan code: 事件的绑定
   addEventBubbleListener(element, getRawEventName(topLevelType),
   // Check if interactive and wrap in interactiveUpdates
   dispatch.bind(null, topLevelType));
@@ -7584,6 +7585,7 @@ function setInitialDOMProperties(tag, domElement, rootContainerElement, nextProp
         if (true && typeof nextProp !== 'function') {
           warnForInvalidEventListener(propKey, nextProp);
         }
+        // liuduan code:监听事件
         ensureListeningTo(rootContainerElement, propKey);
       }
     } else if (nextProp != null) {
@@ -11657,6 +11659,7 @@ function updateClassInstance(current, workInProgress, ctor, newProps, renderExpi
   var oldState = workInProgress.memoizedState;
   var newState = instance.state = oldState;
   var updateQueue = workInProgress.updateQueue;
+  // liuduan code: 在此更新state
   if (updateQueue !== null) {
     processUpdateQueue(workInProgress, updateQueue, newProps, instance, renderExpirationTime);
     newState = workInProgress.memoizedState;
@@ -11679,10 +11682,11 @@ function updateClassInstance(current, workInProgress, ctor, newProps, renderExpi
   }
 
   if (typeof getDerivedStateFromProps === 'function') {
+    // liuduan code: 再次更新state
     applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
     newState = workInProgress.memoizedState;
   }
-
+  // liuduan code: 判断是会否需要更新，执行shouldComponent
   var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext);
 
   if (shouldUpdate) {
@@ -16313,8 +16317,8 @@ function processUpdateQueue(workInProgress, queue, props, instance, renderExpira
   var newExpirationTime = NoWork;
 
   // Iterate through the list of updates to compute the result.
-  var update = queue.firstUpdate; // 第一次setState后的对象或function
-  var resultState = newBaseState; // 最初的state
+  var update = queue.firstUpdate; // liuduan code: 第一次setState后的对象或function
+  var resultState = newBaseState; // liuduan code: 最初的state
   while (update !== null) {
     var updateExpirationTime = update.expirationTime;
     if (updateExpirationTime < renderExpirationTime) {
@@ -16341,6 +16345,7 @@ function processUpdateQueue(workInProgress, queue, props, instance, renderExpira
         workInProgress.effectTag |= Callback;
         // Set this to null, in case it was mutated during an aborted render.
         update.nextEffect = null;
+        // liuduan code: 构建setState callback 的链表接口，后面后调用这个链表
         if (queue.lastEffect === null) {
           queue.firstEffect = queue.lastEffect = update;
         } else {
@@ -16897,6 +16902,7 @@ function completeWork(current, workInProgress, renderExpirationTime) {
               markUpdate(workInProgress);
             }
           } else {
+            // liuduan code: 事件回调绑定在dom实例上
             var instance = createInstance(type, newProps, rootContainerInstance, currentHostContext, workInProgress);
 
             appendAllChildren(instance, workInProgress, false, false);
@@ -16904,6 +16910,7 @@ function completeWork(current, workInProgress, renderExpirationTime) {
             // Certain renderers require commit-time effects for initial mount.
             // (eg DOM renderer supports auto-focus for certain elements).
             // Make sure such renderers get scheduled for later work.
+            // liuduan code: 挂载事件出处
             if (finalizeInitialChildren(instance, type, newProps, rootContainerInstance, currentHostContext)) {
               markUpdate(workInProgress);
             }
@@ -19110,6 +19117,8 @@ function resetChildExpirationTime(workInProgress, renderTime) {
   workInProgress.childExpirationTime = newChildExpirationTime;
 }
 
+// liuduan code: diff是否需要更新，需要更新，构建更新单链表结构，
+// 向上查找，如果有兄弟节点返回兄弟节点，如果有父节，向父节点查找
 function completeUnitOfWork(workInProgress) {
   // Attempt to complete the current unit of work, then move to the
   // next sibling. If there are no more siblings, return to the
@@ -20472,7 +20481,7 @@ function flushSync(fn, a) {
     performSyncWork();
   }
 }
-
+// liuduan code: 事件开启批处理
 function interactiveUpdates$1(fn, a, b) {
   // If there are any pending interactive updates, synchronously flush them.
   // This needs to happen before we read any handlers, because the effect of
