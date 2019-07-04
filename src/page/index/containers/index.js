@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AAA from './AAA';
-// import Topology from '../components/Topology';
+
 
 
 export default class App extends Component {
@@ -32,9 +32,9 @@ export default class App extends Component {
             test: true,
         };
     }
-    
+
     // componentWillReceiveProps(nextProps) {
-        
+
     // }
 
     // componentWillMount() {
@@ -56,19 +56,19 @@ export default class App extends Component {
     tick = (e) => {
         // e.persist();
         // setTimeout(() => {
-        //     console.log(e.target);
-        // }, 0);
+        //     console.log("e.persist", e.target);
+        // }, 100);
 
         console.log('handleClickNumber', e.target);
         this.setState((state) => ({
             count: state.count + 1
         }), () => {
-            console.log(1, this.state.count);
+            console.log("setState callback 1", this.state.count);
         });
         this.setState((state) => ({
             count: state.count + 1
         }), () => {
-            console.log(2, this.state.count);
+            console.log("setState callback 2", this.state.count);
         });
 
         this.setState((state) => ({
