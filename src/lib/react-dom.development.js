@@ -16313,8 +16313,8 @@ function processUpdateQueue(workInProgress, queue, props, instance, renderExpira
   var newExpirationTime = NoWork;
 
   // Iterate through the list of updates to compute the result.
-  var update = queue.firstUpdate;
-  var resultState = newBaseState;
+  var update = queue.firstUpdate; // 第一次setState后的对象或function
+  var resultState = newBaseState; // 最初的state
   while (update !== null) {
     var updateExpirationTime = update.expirationTime;
     if (updateExpirationTime < renderExpirationTime) {
